@@ -10,7 +10,7 @@ String expensesModelToJson(ExpensesModel data) => json.encode(data.toJson());
 
 class ExpensesModel {
     int? id;
-    int link;
+    int? link;
     int year;
     int month;
     int day;
@@ -19,12 +19,12 @@ class ExpensesModel {
 
     ExpensesModel({
         this.id,
-        required this.link,
-        required this.year,
-        required this.month,
-        required this.day,
-        required this.comment,
-        required this.expense,
+        this.link,
+        this.year = 0,
+        this.month = 0,
+        this.day = 0,
+        this.comment = '',
+        this.expense = 0.0,
     });
 
     factory ExpensesModel.fromJson(Map<String, dynamic> json) => ExpensesModel(

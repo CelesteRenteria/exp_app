@@ -32,6 +32,7 @@ class _HomePage extends StatelessWidget {
   final currentMonth =  uiProvider.selectedMonth+1;
     switch(currentIndex){
       case 0:
+      exProvider.getEntriesByDate(currentMonth, date.year);
       exProvider.getExpensesByDate(currentMonth, date.year);
       exProvider.getAllFeatures();
       return const BalancePage();

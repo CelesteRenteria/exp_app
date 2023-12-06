@@ -11,3 +11,4 @@ export 'add_expenses_wt/create_category.dart';
 export 'add_expenses_wt/save_btn.dart';
 export 'balance_page_wt/flayer_categories.dart';
 export 'balance_page_wt/month_selector.dart';
+export 'add_entries_wt/save_et_button.dart';

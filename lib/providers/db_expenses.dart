@@ -1,3 +1,4 @@
+import 'package:exp_app/models/entries_model.dart';
 import 'package:exp_app/models/expenses_model.dart';
 import 'package:sqflite/sqflite.dart';
 // ignore: depend_on_referenced_packages
@@ -73,4 +74,21 @@ class DBExpenses{
     final response = db.delete('Expenses',where:'id = ?', whereArgs: [id]);
     return response;
   }
+
+//Entries
+
+addEntries(EntriesModel exp)async{
+    final db = await database;
+    final response = await db.insert('Entries',exp.toJson());
+    return response;
+  }
+Future<List<EntriesModel>>getEntriesByDate(int month, int year)async{
+    final db = await database;
+    final response = await db.query('Entries',where:'month = ? and year = ?',
+    whereArgs: [month, year]);
+    List<EntriesModel> data = response.isNotEmpty? response.map((e) => EntriesModel.fromJson(e)).toList() : [];
+    return data;
+  }
+
+
 }

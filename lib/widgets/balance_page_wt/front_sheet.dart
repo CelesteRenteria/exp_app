@@ -1,3 +1,6 @@
+import 'package:exp_app/widgets/balance_page_wt/flayer_balance.dart';
+import 'package:exp_app/widgets/balance_page_wt/flayer_frecuency.dart';
+import 'package:exp_app/widgets/balance_page_wt/flayer_movements.dart';
 import 'package:exp_app/widgets/balance_page_wt/flayer_skin.dart';
 import 'package:exp_app/widgets/widgets.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +22,7 @@ class FrontSheet extends StatelessWidget {
   }
 
     return Container(
-      height: 900.0,
+      
       decoration: Constants.sheetBoxDecoration(
           Theme.of(context).scaffoldBackgroundColor),
       child: 
@@ -27,8 +30,15 @@ class FrontSheet extends StatelessWidget {
       ListView(
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
-          children: const [
-            FlayerSkin(title: 'Categoría de Gastos', myWidget: FlayerCategories())
+          children:  [
+            const FlayerSkin(title: 'Categoría de Gastos', myWidget: FlayerCategories()),
+            const FlayerSkin(title: 'Frecuencia de Gastos', myWidget: FlayerFrecuency()),
+            const FlayerSkin(title: 'Movimientos', myWidget: FlayerMovements()),
+            const FlayerSkin(title: 'Balance General', myWidget: FlayerBalance()),
+            Container(
+              padding: const EdgeInsets.all(35.0),
+              child: Image.asset('assets/notes.png'),
+            )
           ]):
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
